@@ -1,7 +1,7 @@
 name: labeling_workflow
 
 on:
-  issue:
+  issues:
     types: [opened, edited, reopened, labeled]
     
 jobs:
