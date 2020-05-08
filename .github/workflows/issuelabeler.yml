@@ -13,7 +13,6 @@ jobs:
            
       - name: label
         uses: ./.github/actions/issuelabeler
-        if: ${{github.event.pull_request.additions==1}} 
         with:
           repo-token: ${{secrets.GITHUB_TOKEN}}
           number: ${{github.event.issue.number}}
