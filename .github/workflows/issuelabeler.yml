@@ -1,0 +1,19 @@
+name: labeling_workflow
+
+on:
+  issue:
+    types: [opened, edited, reopened, labeled]
+    
+jobs:
+  label_issue:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1 
+           
+      - name: label
+        uses: ./.github/actions/issuelabeler
+        if: ${{github.event.pull_request.additions==1}} 
+        with:
+          repo-token: ${{secrets.GITHUB_TOKEN}}
+          number: ${{github.event.issue.number}}
