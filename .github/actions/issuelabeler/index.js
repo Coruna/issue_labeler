@@ -5,9 +5,7 @@ async function run() {
   try {
   
     const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
-    //const repo = github.context.repo;
     const token = core.getInput("repo-token");
-    //const number = core.getInput("number");
     const issue = github.context.payload.issue.number;
     const octokit = new github.GitHub(token);
     
@@ -21,8 +19,6 @@ async function run() {
       labels: label
     });      
        
-    console.log(response);
-
   } catch (error) {
     core.setFailed(error.message);
   }
