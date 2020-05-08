@@ -9,7 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1 
+      - uses: actions/checkout@v1
+         
+      - name: Print Hello world
+        run: echo Hello world!
            
       - name: label-step
         uses: ./.github/actions/issuelabeler
