@@ -2,7 +2,7 @@ name: labeling_workflow
 
 on:
   issues:
-    types: [opened, edited, reopened, labeled]
+    types: [opened, edited, reopened]
     
 jobs:
   label_issue:
@@ -11,8 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1 
            
-      - name: label
+      - name: label-step
         uses: ./.github/actions/issuelabeler
         with:
           repo-token: ${{secrets.GITHUB_TOKEN}}
-          number: ${{github.event.issue.number}}
