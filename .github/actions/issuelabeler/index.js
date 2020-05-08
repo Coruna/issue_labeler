@@ -10,7 +10,7 @@ async function run() {
     const number = core.getInput("number");
     const octokit = new github.GitHub(token);
     
-    const label = "new"
+    const label = ["new", "bug"];
         
     // Label issue
     const response = await octokit.issues.addLabels({
