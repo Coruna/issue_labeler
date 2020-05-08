@@ -7,16 +7,17 @@ async function run() {
     const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
     //const repo = github.context.repo;
     const token = core.getInput("repo-token");
-    const number = core.getInput("number");
+    //const number = core.getInput("number");
+    const issue = github.context.payload.issue.number;
     const octokit = new github.GitHub(token);
     
-    const label = ["new", "bug"];
+    const label = ["new"];
         
     // Label issue
     const response = await octokit.issues.addLabels({
       owner,
       repo,
-      issue_number: number,
+      issue_number: issue,
       labels: label
     });      
        
